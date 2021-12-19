@@ -1,4 +1,4 @@
-# Computer Introduction Hw7
+# Computer Introduction Hw7 - python 
 
 ### Introduction
 
@@ -21,8 +21,9 @@ The below is the output format:
 
 - When the player start to guess, you print `Enter your guess:\n` to the screen
 - If the player's guess is invaild, you should print `Invalid, please enter your guess again:\n` to the screen
-- The judge would tell the players: `Your guess is ...; the result is ...A...B\n` - E.g. if the player guess 0123, and the answer is 0538, the judge would tell:
-  `Your guess is 0123; the result is 1A1B\n`
+- The judge would tell the players: `Your guess is ...; the result is ...A...B\n`
+  - E.g. if the player guess 0123, and the answer is 0538, the judge would tell:
+    `Your guess is 0123; the result is 1A1B\n`
 
 Other notice:
 
