@@ -16,7 +16,7 @@ mkdir $OUTPUT_DIR
 
 for i in {0..4};
 do
-    python3 main.py < "${TESTCASE_DIR}/${i}.txt" > "${OUTPUT_DIR}/${i}.txt"
+    python3.8.6 main.py < "${TESTCASE_DIR}/${i}.txt" > "${OUTPUT_DIR}/${i}.txt"
     
     if cmp --silent -- "${ANSWER_DIR}/${i}.txt" "${OUTPUT_DIR}/${i}.txt"; then
         echo -e "${AC}Testcase ${i} passed ~ ${END_COLOR}"
