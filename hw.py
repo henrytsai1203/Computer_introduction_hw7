@@ -1,39 +1,51 @@
 class Judge:
     def __init__(self, answer: str) -> None:
-        """
-        Set the answer as the attribute of Judge
-        answer: (int) the final answer
-        """
-        # TODO
+        self.answer = answer
 
     def guess(self, num: str) -> bool:
-        """
-        Method that guess the number, it'll print info that shows:
-            Your guess is ...; the result is xAxB
-            e.g.: Your guess is 0123; the result is 0A1B
-        num: the number that it guessed
-        return: whether the player guess the correct answer
-        """
-        # TODO
+        a = 0
+        b = 0
+
+        Alist = [True]*len(self.answer)
+
+        for i in range(len(self.answer)):
+            if(self.answer[i]==num[i]):
+                a = a+1
+                Alist[i] = False
+        
+        for i in range(len(self.answer)):
+            for j in range(len(self.answer)):
+                if(self.answer[i]==num[j]  and Alist[i]==True):
+                    b = b+1
+                    Alist[i] = False
+
+        print(f"Your guess is {num}; the result is {a}A{b}B")
+
+        if (a == len(self.answer) and b==0):
+            return True
+        else:
+            return False
 
 
 def read_input(guess_len: int) -> str:
-    """
-    Function that read player's guess.
-    guess_len: length the the player should guess. it would be same as the length of answer
-    return: the valid string guessed by player
+    
+    guess = input("Enter your guess:\n")
+    numset = set(guess)
+    isnum = 1
+    for i in numset:
+        if i not in {'0','1','2','3','4','5','6','7','8','9'}:
+            isnum = 0
 
-    You should show the hint message:
-        "Enter your guess:\n"
-    If the player's guess is invalid, you should print:
-        "Invalid, please enter your guess again:\n"
-    Note: a valid guess means contain only guess_len non-repetitive integer range from 0~9
-    """
-    # TODO
+    while (guess_len != len(guess) or len(numset)!= len(guess) or isnum==0):
+        guess = input("Invalid, please enter your guess again:\n")
+        numset = set(guess)
+        isnum = 1
+        for i in numset:
+            if i not in {'0','1','2','3','4','5','6','7','8','9'}:
+                isnum = 0
 
+    return guess
+    
 
 def enter_answer() -> str:
-    """
-    Function that enter the answer, you can assume that the answer must be valid.
-    """
-    # TODO
+    return input()
